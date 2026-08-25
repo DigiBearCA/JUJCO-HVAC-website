@@ -746,8 +746,8 @@
         if ($form.hasClass("cs_search_form")) {
           var q = ($form.find("input").val() || "").trim();
           window.location.href = q
-            ? "blog.html?q=" + encodeURIComponent(q)
-            : "blog.html";
+            ? "blog?q=" + encodeURIComponent(q)
+            : "blog";
           return;
         }
 
