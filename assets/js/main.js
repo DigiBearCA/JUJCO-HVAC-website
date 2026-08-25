@@ -1,5 +1,5 @@
 (function ($) {
-  'use strict';
+  "use strict";
 
   /*
   |--------------------------------------------------------------------------
@@ -33,11 +33,11 @@
     initForms();
     pageTransitions();
 
-    if ($.exists('.wow')) {
+    if ($.exists(".wow")) {
       new WOW().init();
     }
-    if ($.exists('.player')) {
-      $('.player').YTPlayer();
+    if ($.exists(".player")) {
+      $(".player").YTPlayer();
     }
   });
 
@@ -47,51 +47,54 @@
   function initVideoPreloader() {
     /* intro.js owns the overlay. This is only a fallback if that file did not run. */
     if (window.__jujcoIntro) return;
-    var preloader = document.querySelector('.cs_preloader');
+    var preloader = document.querySelector(".cs_preloader");
     if (!preloader) return;
     window.__jujcoIntro = true;
-    document.documentElement.classList.add('cs_intro_lock');
-    document.body.classList.add('cs_intro_lock');
-    var reduceMotion = window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var isCinematic = preloader.classList.contains('cs_preloader--cinematic');
+    document.documentElement.classList.add("cs_intro_lock");
+    document.body.classList.add("cs_intro_lock");
+    var reduceMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var isCinematic = preloader.classList.contains("cs_preloader--cinematic");
     var done = false;
     function finish() {
       if (done) return;
       done = true;
-      preloader.classList.add('is-out');
+      preloader.classList.add("is-out");
       window.setTimeout(function () {
         if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-        document.documentElement.classList.remove('cs_intro_lock');
-        document.body.classList.remove('cs_intro_lock');
+        document.documentElement.classList.remove("cs_intro_lock");
+        document.body.classList.remove("cs_intro_lock");
       }, 420);
     }
     if (reduceMotion) {
-      preloader.classList.add('is-title');
+      preloader.classList.add("is-title");
       window.setTimeout(finish, 450);
     } else if (isCinematic) {
-      window.setTimeout(function () { preloader.classList.add('is-title'); }, 1250);
+      window.setTimeout(function () {
+        preloader.classList.add("is-title");
+      }, 1250);
       window.setTimeout(finish, 3050);
     } else {
       window.setTimeout(finish, 1250);
     }
-    preloader.addEventListener('click', finish);
+    preloader.addEventListener("click", finish);
     window.setTimeout(finish, 5200);
   }
 
   function hidePreloader() {
-    var preloader = document.querySelector('.cs_preloader');
-    $(document).trigger('preloader:hidden');
+    var preloader = document.querySelector(".cs_preloader");
+    $(document).trigger("preloader:hidden");
     if (!preloader) {
-      document.documentElement.classList.remove('cs_intro_lock');
-      document.body.classList.remove('cs_intro_lock');
+      document.documentElement.classList.remove("cs_intro_lock");
+      document.body.classList.remove("cs_intro_lock");
       return;
     }
-    preloader.classList.add('is-out');
+    preloader.classList.add("is-out");
     window.setTimeout(function () {
       if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-      document.documentElement.classList.remove('cs_intro_lock');
-      document.body.classList.remove('cs_intro_lock');
+      document.documentElement.classList.remove("cs_intro_lock");
+      document.body.classList.remove("cs_intro_lock");
     }, 720);
   }
 
@@ -101,21 +104,24 @@
      core in the favicon's brand colors, only on spinner pages.
   --------------------------------------------------------------*/
   function initElectricVibes() {
-    var $in = $('.cs_preloader_in');
-    var $spinner = $('.cs_preloader_spinner');
+    var $in = $(".cs_preloader_in");
+    var $spinner = $(".cs_preloader_spinner");
     // Only run where the favicon actually spins (spinner pages)
     if (!$in.length || !$spinner.length) return;
 
-    var canvas = document.createElement('canvas');
-    canvas.className = 'cs_electric_vibes';
+    var canvas = document.createElement("canvas");
+    canvas.className = "cs_electric_vibes";
     $in[0].insertBefore(canvas, $spinner[0]);
-    $in.addClass('has-vibes');
+    $in.addClass("has-vibes");
 
-    var ctx = canvas.getContext('2d');
+    var ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var W = 0, H = 0, cx = 0, cy = 0;
+    var W = 0,
+      H = 0,
+      cx = 0,
+      cy = 0;
 
     function resize() {
       var r = $in[0].getBoundingClientRect();
@@ -123,35 +129,44 @@
       H = r.height || window.innerHeight;
       canvas.width = Math.floor(W * dpr);
       canvas.height = Math.floor(H * dpr);
-      canvas.style.width = W + 'px';
-      canvas.style.height = H + 'px';
+      canvas.style.width = W + "px";
+      canvas.style.height = H + "px";
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cx = W / 2;
       cy = H / 2;
     }
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
 
     // Favicon brand palette: gold, blue, red (red kept rare).
     // Each bolt has a colored 'glow' (bloom) and a 'core' (white-hot center)
     // so the lightning pops beautifully against the pitch-black background.
     var palette = [
-      { glow: 'rgba(255,199,38,', core: 'rgba(255,243,205,' }, // gold
-      { glow: 'rgba(255,199,38,', core: 'rgba(255,243,205,' }, // gold (weighted)
-      { glow: 'rgba(0,51,160,',   core: 'rgba(205,224,255,' }, // superman blue
-      { glow: 'rgba(239,27,29,',  core: 'rgba(255,210,210,' }  // superman red (rare)
+      { glow: "rgba(255,199,38,", core: "rgba(255,243,205," }, // gold
+      { glow: "rgba(255,199,38,", core: "rgba(255,243,205," }, // gold (weighted)
+      { glow: "rgba(0,51,160,", core: "rgba(205,224,255," }, // superman blue
+      { glow: "rgba(239,27,29,", core: "rgba(255,210,210," }, // superman red (rare)
     ];
 
     var bolts = [];
     var nextBoltAt = 0;
 
-    function rand(a, b) { return a + Math.random() * (b - a); }
+    function rand(a, b) {
+      return a + Math.random() * (b - a);
+    }
 
     // Fractal midpoint-displacement path -> natural, chaotic lightning channel
     function buildBolt(x1, y1, x2, y2, disp, detail) {
-      if (disp < detail) return [{ x: x1, y: y1 }, { x: x2, y: y2 }];
-      var dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy) || 1;
-      var nx = -dy / len, ny = dx / len;
+      if (disp < detail)
+        return [
+          { x: x1, y: y1 },
+          { x: x2, y: y2 },
+        ];
+      var dx = x2 - x1,
+        dy = y2 - y1,
+        len = Math.hypot(dx, dy) || 1;
+      var nx = -dy / len,
+        ny = dx / len;
       var mx = (x1 + x2) / 2 + nx * (Math.random() - 0.5) * disp;
       var my = (y1 + y2) / 2 + ny * (Math.random() - 0.5) * disp;
       var L = buildBolt(x1, y1, mx, my, disp / 2, detail);
@@ -165,7 +180,8 @@
       var reach = Math.hypot(W, H) * rand(0.34, 0.6);
       var grand = Math.random() < 0.18;
       if (grand) reach *= 1.15;
-      var sx = cx, sy = cy;
+      var sx = cx,
+        sy = cy;
       var ex = sx + Math.cos(a0) * reach;
       var ey = sy + Math.sin(a0) * reach;
       var pts = buildBolt(sx, sy, ex, ey, reach * 0.2, 5);
@@ -179,12 +195,14 @@
         life: rand(480, 820),
         w: rand(1.4, 2.8),
         phase: rand(0, Math.PI * 2),
-        inten: grand ? 1.15 : 1
+        inten: grand ? 1.15 : 1,
       };
       // finer, dimmer fractal sub-branches that also fan outward
       var nb = Math.floor(rand(2, grand ? 5 : 4));
       for (var b = 0; b < nb; b++) {
-        var bi = Math.floor(rand(Math.floor(pts.length * 0.25), pts.length - 1));
+        var bi = Math.floor(
+          rand(Math.floor(pts.length * 0.25), pts.length - 1),
+        );
         var bp = pts[bi];
         var bdir = Math.atan2(bp.y - cy, bp.x - cx) + rand(-0.8, 0.8);
         var blen = reach * rand(0.16, 0.4);
@@ -192,7 +210,7 @@
         var byp = bp.y + Math.sin(bdir) * blen;
         bolt.branches.push({
           pts: buildBolt(bp.x, bp.y, bxp, byp, blen * 0.25, 5),
-          inten: 0.55
+          inten: 0.55,
         });
       }
       bolts.push(bolt);
@@ -202,21 +220,26 @@
     // Returns the bolt polyline revealed up to fraction f (0..1) from the center
     function partialPath(pts, f) {
       if (f >= 1) return pts;
-      var seglen = [], total = 0, l;
+      var seglen = [],
+        total = 0,
+        l;
       for (var i = 0; i < pts.length - 1; i++) {
         l = Math.hypot(pts[i + 1].x - pts[i].x, pts[i + 1].y - pts[i].y);
-        seglen.push(l); total += l;
+        seglen.push(l);
+        total += l;
       }
-      var target = f * total, acc = 0;
+      var target = f * total,
+        acc = 0;
       var out = [pts[0]];
       for (var j = 0; j < seglen.length; j++) {
         if (acc + seglen[j] <= target) {
-          out.push(pts[j + 1]); acc += seglen[j];
+          out.push(pts[j + 1]);
+          acc += seglen[j];
         } else {
           var r = (target - acc) / seglen[j];
           out.push({
             x: pts[j].x + (pts[j + 1].x - pts[j].x) * r,
-            y: pts[j].y + (pts[j + 1].y - pts[j].y) * r
+            y: pts[j].y + (pts[j + 1].y - pts[j].y) * r,
           });
           break;
         }
@@ -238,7 +261,7 @@
         var w = Math.max(0.4, wBase * (1 - t) * 0.85 + 0.35);
         var a = aMax * (1 - t * 0.65);
         if (a <= 0.01) continue;
-        ctx.strokeStyle = color + a + ')';
+        ctx.strokeStyle = color + a + ")";
         ctx.lineWidth = w;
         ctx.beginPath();
         ctx.moveTo(pts[i].x, pts[i].y);
@@ -250,17 +273,17 @@
     var raf = 0;
     function frame(now) {
       ctx.clearRect(0, 0, W, H);
-      ctx.globalCompositeOperation = 'lighter';
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
+      ctx.globalCompositeOperation = "lighter";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
 
       // Tight, subtle halo behind the favicon so the backdrop stays pitch black
       var pulse = 0.5 + 0.5 * Math.sin(now / 620);
       var coreR = 44 + pulse * 16;
       var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreR * 2.0);
-      g.addColorStop(0, 'rgba(255,199,38,' + (0.09 + 0.06 * pulse) + ')');
-      g.addColorStop(0.45, 'rgba(0,51,160,' + (0.045 + 0.035 * pulse) + ')');
-      g.addColorStop(1, 'rgba(0,51,160,0)');
+      g.addColorStop(0, "rgba(255,199,38," + (0.09 + 0.06 * pulse) + ")");
+      g.addColorStop(0.45, "rgba(0,51,160," + (0.045 + 0.035 * pulse) + ")");
+      g.addColorStop(1, "rgba(0,51,160,0)");
       ctx.fillStyle = g;
       ctx.beginPath();
       ctx.arc(cx, cy, coreR * 2.0, 0, Math.PI * 2);
@@ -270,10 +293,14 @@
       for (var i = bolts.length - 1; i >= 0; i--) {
         var bo = bolts[i];
         var age = now - bo.born;
-        if (age > bo.life) { bolts.splice(i, 1); continue; }
-        var env = age < bo.life * 0.12
-          ? age / (bo.life * 0.12)
-          : 1 - (age - bo.life * 0.12) / (bo.life * 0.88);
+        if (age > bo.life) {
+          bolts.splice(i, 1);
+          continue;
+        }
+        var env =
+          age < bo.life * 0.12
+            ? age / (bo.life * 0.12)
+            : 1 - (age - bo.life * 0.12) / (bo.life * 0.88);
         env = Math.max(0, Math.min(1, env));
         // progressive outward reveal (center -> tip)
         var f = age < bo.life * 0.22 ? age / (bo.life * 0.22) : 1;
@@ -282,9 +309,9 @@
         var mainPts = f < 1 ? partialPath(bo.pts, f) : bo.pts;
 
         // soft bloom
-        ctx.strokeStyle = bo.glow + (env * 0.26 * mul) + ')';
+        ctx.strokeStyle = bo.glow + env * 0.26 * mul + ")";
         ctx.lineWidth = bo.w * 2.8;
-        ctx.shadowColor = bo.glow + '0.9)';
+        ctx.shadowColor = bo.glow + "0.9)";
         ctx.shadowBlur = 18;
         strokePath(mainPts);
         ctx.shadowBlur = 0;
@@ -296,19 +323,24 @@
         if (f >= 1) {
           for (var br = 0; br < bo.branches.length; br++) {
             var bint = bo.branches[br].inten;
-            ctx.strokeStyle = bo.glow + (env * 0.16 * mul * bint) + ')';
+            ctx.strokeStyle = bo.glow + env * 0.16 * mul * bint + ")";
             ctx.lineWidth = bo.w * 1.6;
-            ctx.shadowColor = bo.glow + '0.9)';
+            ctx.shadowColor = bo.glow + "0.9)";
             ctx.shadowBlur = 12;
             strokePath(bo.branches[br].pts);
             ctx.shadowBlur = 0;
-            drawTaper(bo.branches[br].pts, bo.core, env * 0.7 * mul * bint, bo.w * 0.6);
+            drawTaper(
+              bo.branches[br].pts,
+              bo.core,
+              env * 0.7 * mul * bint,
+              bo.w * 0.6,
+            );
           }
         }
       }
       ctx.shadowBlur = 0;
 
-      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalCompositeOperation = "source-over";
 
       if (now >= nextBoltAt) {
         // several bolts burst outward from the center at once
@@ -320,10 +352,10 @@
     }
     raf = requestAnimationFrame(frame);
 
-    $(document).one('preloader:hidden', function () {
+    $(document).one("preloader:hidden", function () {
       cancelAnimationFrame(raf);
       if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
-      $in.removeClass('has-vibes');
+      $in.removeClass("has-vibes");
     });
   }
 
@@ -331,27 +363,27 @@
      2. Mobile Menu
   --------------------------------------------------------------*/
   function mainNav() {
-    $('.cs_nav').append('<span class="cs_menu_toggle"><span></span></span>');
-    $('.menu-item-has-children').append(
+    $(".cs_nav").append('<span class="cs_menu_toggle"><span></span></span>');
+    $(".menu-item-has-children").append(
       '<span class="cs_menu_dropdown_toggle"><span></span></span>',
     );
-    $('.cs_menu_toggle').on('click', function () {
+    $(".cs_menu_toggle").on("click", function () {
       $(this)
-        .toggleClass('cs_toggle_active')
-        .siblings('.cs_nav_list')
-        .toggleClass('cs_active');
+        .toggleClass("cs_toggle_active")
+        .siblings(".cs_nav_list")
+        .toggleClass("cs_active");
     });
-    $('.cs_menu_toggle')
-      .parents('body')
-      .find('.cs_side_header')
-      .addClass('cs_has_main_nav');
-    $('.cs_menu_toggle')
-      .parents('body')
-      .find('.cs_toolbox')
-      .addClass('cs_has_main_nav');
-    $('.cs_menu_dropdown_toggle').on('click', function () {
-      $(this).toggleClass('active').siblings('ul').slideToggle();
-      $(this).parent().toggleClass('active');
+    $(".cs_menu_toggle")
+      .parents("body")
+      .find(".cs_side_header")
+      .addClass("cs_has_main_nav");
+    $(".cs_menu_toggle")
+      .parents("body")
+      .find(".cs_toolbox")
+      .addClass("cs_has_main_nav");
+    $(".cs_menu_dropdown_toggle").on("click", function () {
+      $(this).toggleClass("active").siblings("ul").slideToggle();
+      $(this).parent().toggleClass("active");
     });
   }
 
@@ -361,24 +393,24 @@
   function stickyHeader() {
     var $window = $(window);
     var lastScrollTop = 0;
-    var $header = $('.cs_sticky_header');
+    var $header = $(".cs_sticky_header");
     var headerHeight = $header.outerHeight() + 20;
 
     $window.scroll(function () {
       var windowTop = $window.scrollTop();
 
       if (windowTop >= headerHeight) {
-        $header.addClass('cs_gescout_sticky');
+        $header.addClass("cs_gescout_sticky");
       } else {
-        $header.removeClass('cs_gescout_sticky');
-        $header.removeClass('cs_gescout_show');
+        $header.removeClass("cs_gescout_sticky");
+        $header.removeClass("cs_gescout_show");
       }
 
-      if ($header.hasClass('cs_gescout_sticky')) {
+      if ($header.hasClass("cs_gescout_sticky")) {
         if (windowTop < lastScrollTop) {
-          $header.addClass('cs_gescout_show');
+          $header.addClass("cs_gescout_show");
         } else {
-          $header.removeClass('cs_gescout_show');
+          $header.removeClass("cs_gescout_show");
         }
       }
       lastScrollTop = windowTop;
@@ -389,10 +421,10 @@
     4. Dynamic Background
   --------------------------------------------------------------*/
   function dynamicBackground() {
-    $('[data-src]').each(function () {
-      var src = $(this).attr('data-src');
+    $("[data-src]").each(function () {
+      var src = $(this).attr("data-src");
       $(this).css({
-        'background-image': 'url(' + src + ')',
+        "background-image": "url(" + src + ")",
       });
     });
   }
@@ -401,51 +433,51 @@
     5. Slick Slider
   --------------------------------------------------------------*/
   function slickInit() {
-    if ($.exists('.cs_slider')) {
-      $('.cs_slider').each(function () {
-        var $ts = $(this).find('.cs_slider_container');
-        var $slickActive = $(this).find('.cs_slider_wrapper');
-        var autoPlayVar = parseInt($ts.attr('data-autoplay'), 10);
+    if ($.exists(".cs_slider")) {
+      $(".cs_slider").each(function () {
+        var $ts = $(this).find(".cs_slider_container");
+        var $slickActive = $(this).find(".cs_slider_wrapper");
+        var autoPlayVar = parseInt($ts.attr("data-autoplay"), 10);
         var autoplaySpdVar = 3000;
         if (autoPlayVar > 1) {
           autoplaySpdVar = autoPlayVar;
           autoPlayVar = 1;
         }
-        var speedVar = parseInt($ts.attr('data-speed'), 10);
-        var loopVar = Boolean(parseInt($ts.attr('data-loop'), 10));
-        var centerVar = Boolean(parseInt($ts.attr('data-center'), 10));
+        var speedVar = parseInt($ts.attr("data-speed"), 10);
+        var loopVar = Boolean(parseInt($ts.attr("data-loop"), 10));
+        var centerVar = Boolean(parseInt($ts.attr("data-center"), 10));
         var variableWidthVar = Boolean(
-          parseInt($ts.attr('data-variable-width'), 10),
+          parseInt($ts.attr("data-variable-width"), 10),
         );
         var paginaiton = $(this)
-          .find('.cs_pagination')
-          .hasClass('cs_pagination');
-        var slidesPerView = $ts.attr('data-slides-per-view');
+          .find(".cs_pagination")
+          .hasClass("cs_pagination");
+        var slidesPerView = $ts.attr("data-slides-per-view");
         if (slidesPerView == 1) {
           slidesPerView = 1;
         }
-        if (slidesPerView == 'responsive') {
-          var slidesPerView = parseInt($ts.attr('data-add-slides'), 10);
-          var lgPoint = parseInt($ts.attr('data-lg-slides'), 10);
-          var mdPoint = parseInt($ts.attr('data-md-slides'), 10);
-          var smPoint = parseInt($ts.attr('data-sm-slides'), 10);
-          var xsPoing = parseInt($ts.attr('data-xs-slides'), 10);
+        if (slidesPerView == "responsive") {
+          var slidesPerView = parseInt($ts.attr("data-add-slides"), 10);
+          var lgPoint = parseInt($ts.attr("data-lg-slides"), 10);
+          var mdPoint = parseInt($ts.attr("data-md-slides"), 10);
+          var smPoint = parseInt($ts.attr("data-sm-slides"), 10);
+          var xsPoing = parseInt($ts.attr("data-xs-slides"), 10);
         }
-        var fadeVar = parseInt($($ts).attr('data-fade-slide'));
+        var fadeVar = parseInt($($ts).attr("data-fade-slide"));
         fadeVar === 1 ? (fadeVar = true) : (fadeVar = false);
 
         $slickActive.slick({
           autoplay: autoPlayVar,
           dots: paginaiton,
-          centerPadding: '28%',
+          centerPadding: "28%",
           speed: speedVar,
           infinite: loopVar,
           autoplaySpeed: autoplaySpdVar,
           centerMode: centerVar,
           fade: fadeVar,
-          prevArrow: $(this).find('.cs_left_arrow'),
-          nextArrow: $(this).find('.cs_right_arrow'),
-          appendDots: $(this).find('.cs_pagination'),
+          prevArrow: $(this).find(".cs_left_arrow"),
+          nextArrow: $(this).find(".cs_right_arrow"),
+          appendDots: $(this).find(".cs_pagination"),
           slidesToShow: slidesPerView,
           variableWidth: variableWidthVar,
           swipeToSlide: true,
@@ -458,22 +490,25 @@
         });
       });
     }
-    if ($.exists('.cs_service_product_thumb') && $.exists('.cs_service_product_nav')) {
-      $('.cs_service_product_thumb').slick({
+    if (
+      $.exists(".cs_service_product_thumb") &&
+      $.exists(".cs_service_product_nav")
+    ) {
+      $(".cs_service_product_thumb").slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        asNavFor: '.cs_service_product_nav',
-        appendDots: $('.cs_pagination_2'),
+        asNavFor: ".cs_service_product_nav",
+        appendDots: $(".cs_pagination_2"),
       });
 
-      $('.cs_service_product_nav').slick({
+      $(".cs_service_product_nav").slick({
         slidesToShow: 4,
         slidesToScroll: 1,
-        asNavFor: '.cs_service_product_thumb',
+        asNavFor: ".cs_service_product_thumb",
         focusOnSelect: true,
-        prevArrow: $('.cs_service_product_nav_left_arrow'),
-        nextArrow: $('.cs_service_product_nav_right_arrow'),
+        prevArrow: $(".cs_service_product_nav_left_arrow"),
+        nextArrow: $(".cs_service_product_nav_right_arrow"),
         responsive: [
           { breakpoint: 1400, settings: { slidesToShow: 4 } },
           { breakpoint: 1199, settings: { slidesToShow: 3 } },
@@ -488,31 +523,34 @@
     6. Modal Video
   --------------------------------------------------------------*/
   function modalVideo() {
-    if (!$.exists('.cs_video_open')) return;
+    if (!$.exists(".cs_video_open")) return;
 
-    $('body').append(
+    $("body").append(
       '<div class="cs_video_popup" role="dialog" aria-modal="true" aria-label="Watch video">' +
         '<div class="cs_video_popup-overlay"></div>' +
         '<div class="cs_video_popup-content">' +
-          '<div class="jvid">' +
-            '<button type="button" class="cs_video_popup-close" aria-label="Close video"></button>' +
-            '<div class="jvid__stage jvid__stage--wide">' +
-              '<iframe class="jvid__iframe" src="about:blank" title="JUJCO video" allow="autoplay; fullscreen; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>' +
-            '</div>' +
-            '<a class="jvid__watch cs_btn cs_style_1" href="https://www.facebook.com/share/r/1C9zwCdDf7/" target="_blank" rel="noopener">' +
-              '<span>Play on Facebook</span>' +
-            '</a>' +
-          '</div>' +
-        '</div>' +
-      '</div>'
+        '<div class="jvid">' +
+        '<button type="button" class="cs_video_popup-close" aria-label="Close video"></button>' +
+        '<div class="jvid__stage jvid__stage--wide">' +
+        '<iframe class="jvid__iframe" src="about:blank" title="JUJCO video" allow="autoplay; fullscreen; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>' +
+        "</div>" +
+        '<a class="jvid__watch cs_btn cs_style_1" href="https://www.facebook.com/share/r/1C9zwCdDf7/" target="_blank" rel="noopener">' +
+        "<span>Play on Facebook</span>" +
+        "</a>" +
+        "</div>" +
+        "</div>" +
+        "</div>",
     );
 
     function rawVideoUrl(href) {
-      var raw = href || '';
+      var raw = href || "";
       try {
         var u = new URL(raw, window.location.href);
-        if (u.hostname.indexOf('facebook.com') !== -1 && u.pathname.indexOf('/plugins/video.php') !== -1) {
-          raw = u.searchParams.get('href') || raw;
+        if (
+          u.hostname.indexOf("facebook.com") !== -1 &&
+          u.pathname.indexOf("/plugins/video.php") !== -1
+        ) {
+          raw = u.searchParams.get("href") || raw;
         }
       } catch (err) {}
       return raw;
@@ -521,14 +559,19 @@
     function facebookPluginSrc(watchUrl, reel) {
       var w = reel ? 320 : 734;
       var h = reel ? 568 : 413;
-      return 'https://www.facebook.com/plugins/video.php?href=' +
+      return (
+        "https://www.facebook.com/plugins/video.php?href=" +
         encodeURIComponent(watchUrl) +
-        '&show_text=false&autoplay=true&mute=0&width=' + w +
-        '&height=' + h + '&t=0';
+        "&show_text=false&autoplay=true&mute=0&width=" +
+        w +
+        "&height=" +
+        h +
+        "&t=0"
+      );
     }
 
     function youtubeEmbed(url) {
-      var id = '';
+      var id = "";
       var m = url.match(/[?&]v=([^&]+)/);
       if (m) id = m[1];
       if (!id) {
@@ -536,57 +579,61 @@
         if (m) id = m[1];
       }
       if (!id) return url;
-      return 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+      return "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0";
     }
 
     function closeVideo() {
-      var $pop = $('.cs_video_popup');
-      $pop.removeClass('active');
-      $('html').removeClass('overflow-hidden');
-      $pop.find('.jvid__iframe').attr('src', 'about:blank');
+      var $pop = $(".cs_video_popup");
+      $pop.removeClass("active");
+      $("html").removeClass("overflow-hidden");
+      $pop.find(".jvid__iframe").attr("src", "about:blank");
     }
 
-    $(document).on('click', '.cs_video_open', function (e) {
+    $(document).on("click", ".cs_video_open", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      var watch = rawVideoUrl($(this).attr('href'));
+      var watch = rawVideoUrl($(this).attr("href"));
       var isFb = /facebook\.com|fb\.watch/i.test(watch);
       var isReel = /\/share\/r\/|\/reel\//i.test(watch);
-      var $pop = $('.cs_video_popup');
-      var $stage = $pop.find('.jvid__stage');
-      var $box = $pop.find('.jvid');
+      var $pop = $(".cs_video_popup");
+      var $stage = $pop.find(".jvid__stage");
+      var $box = $pop.find(".jvid");
       var src = watch;
 
       if (isFb) {
         src = facebookPluginSrc(watch, isReel);
-        $stage.toggleClass('jvid__stage--reel', isReel);
-        $stage.toggleClass('jvid__stage--wide', !isReel);
-        $box.toggleClass('jvid--reel', isReel);
+        $stage.toggleClass("jvid__stage--reel", isReel);
+        $stage.toggleClass("jvid__stage--wide", !isReel);
+        $box.toggleClass("jvid--reel", isReel);
       } else if (/youtube\.com|youtu\.be/i.test(watch)) {
         src = youtubeEmbed(watch);
-        $stage.removeClass('jvid__stage--reel').addClass('jvid__stage--wide');
-        $box.removeClass('jvid--reel');
+        $stage.removeClass("jvid__stage--reel").addClass("jvid__stage--wide");
+        $box.removeClass("jvid--reel");
       } else {
-        $stage.removeClass('jvid__stage--reel').addClass('jvid__stage--wide');
-        $box.removeClass('jvid--reel');
+        $stage.removeClass("jvid__stage--reel").addClass("jvid__stage--wide");
+        $box.removeClass("jvid--reel");
       }
 
-      $pop.find('.jvid__watch').attr('href', watch);
-      $pop.find('.jvid__iframe').attr({
+      $pop.find(".jvid__watch").attr("href", watch);
+      $pop.find(".jvid__iframe").attr({
         src: src,
-        referrerpolicy: 'strict-origin-when-cross-origin'
+        referrerpolicy: "strict-origin-when-cross-origin",
       });
-      $pop.addClass('active');
-      $('html').addClass('overflow-hidden');
+      $pop.addClass("active");
+      $("html").addClass("overflow-hidden");
     });
 
-    $(document).on('click', '.cs_video_popup-close, .cs_video_popup-overlay', function (e) {
-      e.preventDefault();
-      closeVideo();
-    });
+    $(document).on(
+      "click",
+      ".cs_video_popup-close, .cs_video_popup-overlay",
+      function (e) {
+        e.preventDefault();
+        closeVideo();
+      },
+    );
 
-    $(document).on('keydown', function (e) {
-      if (e.key === 'Escape') closeVideo();
+    $(document).on("keydown", function (e) {
+      if (e.key === "Escape") closeVideo();
     });
   }
 
@@ -594,16 +641,20 @@
     7. Accordian
   --------------------------------------------------------------*/
   function accordian() {
-    $('.cs_accordian').children('.cs_accordian_body').hide();
-    $('.cs_accordian.active').children('.cs_accordian_body').show();
-    $('.cs_accordian_head').on('click', function () {
-      var $item = $(this).parent('.cs_accordian');
-      if ($item.hasClass('active')) {
-        $item.removeClass('active').children('.cs_accordian_body').slideUp(250);
+    $(".cs_accordian").children(".cs_accordian_body").hide();
+    $(".cs_accordian.active").children(".cs_accordian_body").show();
+    $(".cs_accordian_head").on("click", function () {
+      var $item = $(this).parent(".cs_accordian");
+      if ($item.hasClass("active")) {
+        $item.removeClass("active").children(".cs_accordian_body").slideUp(250);
         return;
       }
-      $item.siblings().removeClass('active').children('.cs_accordian_body').slideUp(250);
-      $item.addClass('active').children('.cs_accordian_body').slideDown(250);
+      $item
+        .siblings()
+        .removeClass("active")
+        .children(".cs_accordian_body")
+        .slideUp(250);
+      $item.addClass("active").children(".cs_accordian_body").slideDown(250);
     });
   }
 
@@ -611,15 +662,15 @@
     8. Tabs
   --------------------------------------------------------------*/
   function tabs() {
-    $('.cs_tabs .cs_tab_links a').on('click', function (e) {
+    $(".cs_tabs .cs_tab_links a").on("click", function (e) {
       e.preventDefault();
-      var currentAttrValue = $(this).attr('href');
-      if (!currentAttrValue || currentAttrValue.charAt(0) !== '#') return;
-      $('.cs_tabs ' + currentAttrValue)
+      var currentAttrValue = $(this).attr("href");
+      if (!currentAttrValue || currentAttrValue.charAt(0) !== "#") return;
+      $(".cs_tabs " + currentAttrValue)
         .fadeIn(400)
         .siblings()
         .hide();
-      $(this).parents('li').addClass('active').siblings().removeClass('active');
+      $(this).parents("li").addClass("active").siblings().removeClass("active");
     });
   }
 
@@ -627,9 +678,9 @@
     9. Progress Bar
   --------------------------------------------------------------*/
   function progressBar() {
-    $('.cs_progress').each(function () {
-      var progressPercentage = $(this).data('progress') + '%';
-      $(this).find('.cs_progress_in').css('width', progressPercentage);
+    $(".cs_progress").each(function () {
+      var progressPercentage = $(this).data("progress") + "%";
+      $(this).find(".cs_progress_in").css("width", progressPercentage);
     });
   }
 
@@ -637,10 +688,10 @@
     10. Review
   --------------------------------------------------------------*/
   function review() {
-    $('.cs_rating').each(function () {
-      var review = $(this).data('rating');
-      var reviewVal = review * 20 + '%';
-      $(this).find('.cs_rating_percentage').css('width', reviewVal);
+    $(".cs_rating").each(function () {
+      var review = $(this).data("rating");
+      var reviewVal = review * 20 + "%";
+      $(this).find(".cs_rating_percentage").css("width", reviewVal);
     });
   }
 
@@ -655,97 +706,121 @@
   function initForms() {
     function field($form, name, placeholderPart) {
       var $el = $form.find('[name="' + name + '"]');
-      if ($el.length) return ($el.val() || '').trim();
-      var $ph = $form.find('input, textarea').filter(function () {
-        var p = ($(this).attr('placeholder') || '').toLowerCase();
-        return p.indexOf(placeholderPart) !== -1;
-      }).first();
-      return ($ph.val() || '').trim();
+      if ($el.length) return ($el.val() || "").trim();
+      var $ph = $form
+        .find("input, textarea")
+        .filter(function () {
+          var p = ($(this).attr("placeholder") || "").toLowerCase();
+          return p.indexOf(placeholderPart) !== -1;
+        })
+        .first();
+      return ($ph.val() || "").trim();
     }
 
     function mailtoLead(data) {
       var body = [
-        'New website inquiry — JUJCO Heating & Cooling',
-        '',
-        'Name: ' + (data.name || '—'),
-        'Email: ' + (data.email || '—'),
-        'Phone: ' + (data.phone || '—'),
-        'Service: ' + (data.service || '—'),
-        '',
-        data.message || ''
-      ].join('\n');
-      var url = 'mailto:info@jujcohvac.com?subject=' +
-        encodeURIComponent(data.subject || 'Website inquiry') +
-        '&body=' + encodeURIComponent(body);
+        "New website inquiry — JUJCO Heating & Cooling",
+        "",
+        "Name: " + (data.name || "—"),
+        "Email: " + (data.email || "—"),
+        "Phone: " + (data.phone || "—"),
+        "Service: " + (data.service || "—"),
+        "",
+        data.message || "",
+      ].join("\n");
+      var url =
+        "mailto:info@jujcohvac.com?subject=" +
+        encodeURIComponent(data.subject || "Website inquiry") +
+        "&body=" +
+        encodeURIComponent(body);
       window.location.href = url;
     }
 
-    $(document).on('submit', '#contactForm, .cs_get_quote_form, .cs_lead_form, .cs_footer_newsletter, .cs_search_form', function (e) {
-      e.preventDefault();
-      var $form = $(this);
+    $(document).on(
+      "submit",
+      "#contactForm, .cs_get_quote_form, .cs_lead_form, .cs_footer_newsletter, .cs_search_form",
+      function (e) {
+        e.preventDefault();
+        var $form = $(this);
 
-      if ($form.hasClass('cs_search_form')) {
-        var q = ($form.find('input').val() || '').trim();
-        window.location.href = q ? ('blog.html?q=' + encodeURIComponent(q)) : 'blog.html';
-        return;
-      }
-
-      if ($form.hasClass('cs_footer_newsletter')) {
-        var newsEmail = field($form, 'email', 'email');
-        if (!newsEmail) {
-          alert('Please enter your email address.');
+        if ($form.hasClass("cs_search_form")) {
+          var q = ($form.find("input").val() || "").trim();
+          window.location.href = q
+            ? "blog.html?q=" + encodeURIComponent(q)
+            : "blog.html";
           return;
         }
-        mailtoLead({
-          name: 'Newsletter',
-          email: newsEmail,
-          subject: 'Newsletter signup',
-          message: 'Please add this email to the JUJCO newsletter list.'
-        });
-        return;
-      }
 
-      var data = {
-        name: field($form, 'name', 'name'),
-        email: field($form, 'email', 'email'),
-        phone: field($form, 'phone', 'phone'),
-        service: field($form, 'service', 'service'),
-        message: field($form, 'message', 'message') || field($form, 'message', 'write'),
-        subject: field($form, 'subject', 'subject') || 'Appointment request'
-      };
-
-      if ($form.find('[required]').length) {
-        var ok = true;
-        $form.find('[required]').each(function () {
-          if (!$(this).val()) ok = false;
-        });
-        if (!ok) {
-          alert('Please fill in the required fields.');
+        if ($form.hasClass("cs_footer_newsletter")) {
+          var newsEmail = field($form, "email", "email");
+          if (!newsEmail) {
+            alert("Please enter your email address.");
+            return;
+          }
+          mailtoLead({
+            name: "Newsletter",
+            email: newsEmail,
+            subject: "Newsletter signup",
+            message: "Please add this email to the JUJCO newsletter list.",
+          });
           return;
         }
-      }
 
-      if (window.fetch && $form.attr('id') === 'contactForm') {
-        var formData = new FormData(this);
-        formData.append('_captcha', 'false');
-        fetch('https://formsubmit.co/ajax/info@jujcohvac.com', { method: 'POST', body: formData })
-          .then(function (res) {
-            if (res.ok) {
-              alert('Thank you. Your request was sent. We will contact you shortly.');
-              $form[0].reset();
-            } else {
-              mailtoLead(data);
-            }
+        var data = {
+          name: field($form, "name", "name"),
+          email: field($form, "email", "email"),
+          phone: field($form, "phone", "phone"),
+          service: field($form, "service", "service"),
+          message:
+            field($form, "message", "message") ||
+            field($form, "message", "write"),
+          subject: field($form, "subject", "subject") || "Appointment request",
+        };
+
+        if ($form.find("[required]").length) {
+          var ok = true;
+          $form.find("[required]").each(function () {
+            if (!$(this).val()) ok = false;
+          });
+          if (!ok) {
+            alert("Please fill in the required fields.");
+            return;
+          }
+        }
+
+        if (window.fetch && $form.attr("id") === "contactForm") {
+          var formData = new FormData(this);
+          formData.append("_captcha", "false");
+          fetch("https://formsubmit.co/ajax/info@jujcohvac.com", {
+            method: "POST",
+            body: formData,
           })
-          .catch(function () { mailtoLead(data); });
-        return;
-      }
+            .then(function (res) {
+              if (res.ok) {
+                alert(
+                  "Thank you. Your request was sent. We will contact you shortly.",
+                );
+                $form[0].reset();
+              } else {
+                mailtoLead(data);
+              }
+            })
+            .catch(function () {
+              mailtoLead(data);
+            });
+          return;
+        }
 
-      mailtoLead(data);
-    });
+        mailtoLead(data);
+      },
+    );
 
-    $(document).on('submit', 'form[action="#"]', function (e) {
-      if ($(this).is('#contactForm, .cs_get_quote_form, .cs_lead_form, .cs_footer_newsletter, .cs_search_form')) {
+    $(document).on("submit", 'form[action="#"]', function (e) {
+      if (
+        $(this).is(
+          "#contactForm, .cs_get_quote_form, .cs_lead_form, .cs_footer_newsletter, .cs_search_form",
+        )
+      ) {
         return;
       }
       e.preventDefault();
@@ -755,68 +830,83 @@
 
 /* JUJCO premium 3D / 4D / 5D animations */
 (function () {
-  'use strict';
+  "use strict";
   function jujcoInit() {
-    var tilt = '.cs_pricing_plan, .cs_team_member, .cs_post, .cs_project_card, .cs_card, .cs_iconbox';
-    var reveal = '.cs_service_card, .cs_pricing_plan, .cs_team_member, .cs_post, .cs_project_card, .cs_card, .cs_iconbox, .cs_section_heading, .cs_cta, .cs_faq, .cs_contact_info, .cs_work_step';
-    var supportsIO = ('IntersectionObserver' in window);
+    var tilt =
+      ".cs_pricing_plan, .cs_team_member, .cs_post, .cs_project_card, .cs_card, .cs_iconbox";
+    var reveal =
+      ".cs_service_card, .cs_pricing_plan, .cs_team_member, .cs_post, .cs_project_card, .cs_card, .cs_iconbox, .cs_section_heading, .cs_cta, .cs_faq, .cs_contact_info, .cs_work_step";
+    var supportsIO = "IntersectionObserver" in window;
     var io = null;
     if (supportsIO) {
-      io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) {
-            en.target.classList.add('jujco-show');
-            io.unobserve(en.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.add("jujco-show");
+              io.unobserve(en.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
     }
     document.querySelectorAll(tilt).forEach(function (el) {
-      el.addEventListener('mousemove', function (e) {
+      el.addEventListener("mousemove", function (e) {
         var r = el.getBoundingClientRect();
         var px = (e.clientX - r.left) / r.width - 0.5;
         var py = (e.clientY - r.top) / r.height - 0.5;
-        el.style.transform = 'perspective(900px) rotateX(' + (-py * 9).toFixed(2) + 'deg) rotateY(' + (px * 9).toFixed(2) + 'deg) translateY(-8px) scale(1.025)';
+        el.style.transform =
+          "perspective(900px) rotateX(" +
+          (-py * 9).toFixed(2) +
+          "deg) rotateY(" +
+          (px * 9).toFixed(2) +
+          "deg) translateY(-8px) scale(1.025)";
       });
-      el.addEventListener('mouseleave', function () {
-        el.style.transform = '';
+      el.addEventListener("mouseleave", function () {
+        el.style.transform = "";
       });
     });
     document.querySelectorAll(reveal).forEach(function (el, i) {
-      el.classList.add('jujco-reveal');
-      if (i % 3 === 1) el.classList.add('lvl-2');
-      else if (i % 3 === 2) el.classList.add('lvl-3');
+      el.classList.add("jujco-reveal");
+      if (i % 3 === 1) el.classList.add("lvl-2");
+      else if (i % 3 === 2) el.classList.add("lvl-3");
       if (io) io.observe(el);
-      else el.classList.add('jujco-show');
+      else el.classList.add("jujco-show");
     });
-    var eqGroups = ['.cs_whychoose_grid', '.cs_contact_cards'];
+    var eqGroups = [".cs_whychoose_grid", ".cs_contact_cards"];
     function jujcoEqualize() {
       eqGroups.forEach(function (g) {
         var containers = document.querySelectorAll(g);
         Array.prototype.forEach.call(containers, function (cont) {
-          var cards = cont.querySelectorAll('.cs_iconbox');
+          var cards = cont.querySelectorAll(".cs_iconbox");
           if (cards.length < 2) return;
-          Array.prototype.forEach.call(cards, function (c) { c.style.height = ''; });
+          Array.prototype.forEach.call(cards, function (c) {
+            c.style.height = "";
+          });
           var max = 0;
           Array.prototype.forEach.call(cards, function (c) {
             var h = c.offsetHeight;
             if (h > max) max = h;
           });
           if (max > 0) {
-            Array.prototype.forEach.call(cards, function (c) { c.style.height = max + 'px'; });
+            Array.prototype.forEach.call(cards, function (c) {
+              c.style.height = max + "px";
+            });
           }
         });
       });
     }
     jujcoEqualize();
     var eqTimer = null;
-    window.addEventListener('resize', function () {
+    window.addEventListener("resize", function () {
       clearTimeout(eqTimer);
       eqTimer = setTimeout(jujcoEqualize, 150);
     });
-    window.addEventListener('load', jujcoEqualize);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(jujcoEqualize);
+    window.addEventListener("load", jujcoEqualize);
+    if (document.fonts && document.fonts.ready)
+      document.fonts.ready.then(jujcoEqualize);
   }
-  if (document.readyState !== 'loading') jujcoInit();
-  else document.addEventListener('DOMContentLoaded', jujcoInit);
+  if (document.readyState !== "loading") jujcoInit();
+  else document.addEventListener("DOMContentLoaded", jujcoInit);
 })();
