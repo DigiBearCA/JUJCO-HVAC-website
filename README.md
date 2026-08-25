@@ -1,12 +1,10 @@
 <div align="center">
   <img src="assets/img/logo-mark.png" alt="JUJCO Logo" width="150"/>
   <h1>🔥 JUJCO Heating & Cooling ❄️</h1>
-  <p><em>Premium HVAC Services in Edmonton, Alberta</em></p>
+  <p><em>Premium HVAC Services Website Project</em></p>
   
   <p>
-    <a href="https://www.instagram.com/jujcohvac"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
-    <a href="https://www.tiktok.com/@jujcoheatingcooling"><img src="https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white" alt="TikTok"></a>
-    <a href="https://www.facebook.com/jujco.heating.cooling/"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook"></a>
+    <a href="https://digibearca.com"><img src="https://img.shields.io/badge/Maintained%20By-DigiBearCA-FF9900?style=for-the-badge&logo=codeigniter&logoColor=white" alt="DigiBearCA"></a>
   </p>
 </div>
 
@@ -14,26 +12,47 @@
 
 ## 🌟 About JUJCO
 
-Welcome to **JUJCO Heating & Cooling**, your trusted partner for all HVAC needs in Edmonton, Alberta. We are committed to providing top-notch residential and commercial heating, ventilation, and air conditioning solutions. Our team of experienced professionals ensures your comfort all year round, whether it's the freezing winters or the scorching summers.
+Welcome to **JUJCO Heating & Cooling**. This repository contains the official frontend web architecture for an HVAC service provider based in Edmonton, Alberta. It serves as a digital storefront offering residential and commercial heating, ventilation, and air conditioning solutions.
 
 ---
 
-## 📖 What is this Project? (For Non-Coders)
+## 🔬 Project Architecture & Deep Analysis
 
-This project is the **official website template** for JUJCO Heating & Cooling. Think of it as a digital storefront. Just as a physical store needs a well-designed layout, friendly signs, and a welcoming entrance, a business needs a website that looks professional and helps customers find what they need quickly.
+Unlike a traditional Content Management System (CMS) or a Single-Page Application (SPA) built with React/Vue, this project utilizes a **Script-Assisted Static Site Architecture**. It relies on flat HTML files augmented by custom Python and PowerShell scripts to handle templating, bulk updates, and structural injection.
+
+### 1. Automation & Build Scripts
+The root directory contains utility scripts that act as a pseudo-Static Site Generator (SSG). These scripts parse and patch the `.html` files in bulk:
+- **`_wow_pages.py` (Python)**: Parses the HTML files to inject motion patterns, append `jtheme` and `jmorph` CSS classes, standardize breadcrumb navigation logic (`crumbs()`), and dynamically replace hero headers across all service and detail pages.
+- **`_bulk_all.ps1` (PowerShell)**: A robust bulk-update script that:
+  - Cleans up text encodings, replacing corrupted UTF-8 sequences (mojibake) with proper typographic characters (en-dashes, em-dashes, smart quotes).
+  - Conditionally injects MP4 preloader video tags depending on whether it's the index or an inner page.
+  - Automatically fixes and clones items for CSS marquee tracks.
+  - Conditionally hides or displays specific sections (like Pricing) based on the page context.
+
+### 2. Frontend Assets & Styling
+- **CSS Framework**: Built on **Bootstrap** for reliable and responsive grid layouts.
+- **Custom Animations**: Heavy emphasis on micro-interactions and scroll-animations using custom JS (`animations.js`, `jujco-anim2.js`, `jujco-motion.js`) and `wow.min.js`.
+- **Cinematic Preloader**: A custom, intricate pre-loader handled by `intro.js` featuring film-grain, glow effects, and animated rotors representing HVAC fans.
+- **Carousels**: Integrated with `jquery.slick.min.js` for content sliders.
+
+### 3. File Structure Pattern
+The project scales by isolating page types into specific HTML files:
+- **Index Pages**: `index.html`, `index-2.html`, `home-v2.html`
+- **Service Pages**: `service-*.html` (e.g., `service-furnace-installation.html`)
+- **Project/Portfolio Pages**: `project-*.html`
+- **Blog Pages**: `blog-*.html`
+- **Team Profiles**: `team-*.html`
+
+---
+
+## 📖 For Non-Coders: What is this Project?
+
+This project is the **official website** for JUJCO Heating & Cooling. Think of it as a digital storefront. Just as a physical store needs a well-designed layout, friendly signs, and a welcoming entrance, a business needs a website that looks professional and helps customers find what they need quickly.
 
 Here is a simple breakdown of what this project contains:
 - **The Visual Design**: It includes all the fonts, colors, images, and animations (like the cool cinematic intro when you first open the site) that make the website look modern, trustworthy, and premium.
-- **The Pages**: 
-  - A **Home Page** to welcome visitors and give a quick overview.
-  - An **About Us Page** to tell the company's story.
-  - A **Services Section** detailing everything the business offers (like furnace repairs, AC installations, etc.).
-  - A **Projects Portfolio** to show past successful jobs.
-  - A **Blog** to share helpful tips on maintaining home temperature and air quality.
-  - A **Contact Page** so customers can easily get in touch for quotes or emergencies.
-- **The Engine Under the Hood**: Although it's a website, it is built using standard internet technologies that ensure it runs smoothly and looks beautiful on mobile phones, tablets, and desktop computers alike.
-
-In short, this is a ready-to-use, beautifully designed website package tailored specifically for an HVAC business to establish their online presence.
+- **The Engine Under the Hood**: Although it's a standard website, it uses custom mini-programs (scripts) to automatically update formatting, fix typos, and apply the same visual style across all 50+ pages at once. This means if we need to change the style of the top banner, we run a script instead of changing 50 files by hand!
+- **The Content**: Everything from describing furnace repairs and AC installations to showcasing past work and introducing the team members.
 
 ---
 
@@ -43,31 +62,14 @@ This project is proudly owned and managed by **[DigiBearCA.com](https://digibear
 
 ---
 
-## 📂 Project Structure
-
-For a quick overview of how the files are organized behind the scenes:
-
-```text
-JUJCO/
-├── assets/         # Contains all the visuals (images, fonts) and styles (colors, animations)
-├── index.html      # The Main Landing Page (Start here!)
-├── about-us.html   # The Company Story
-├── service.html    # Main Services Page (and individual service detail pages)
-├── projects.html   # Past Work Gallery
-├── blog.html       # Articles and Updates
-└── contact.html    # Get in Touch
-```
-
----
-
 ## 💻 Tech Stack
 
 <div align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
-  <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" alt="jQuery" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell" />
 </div>
 
 <p align="center">
