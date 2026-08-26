@@ -111,7 +111,7 @@
       theme: "cool",
       badge: "Cooling",
       title: "AC Installation",
-      lede: "Quiet, high-SEER central air sized to the home — not a copy of whatever was on the pad — so July afternoons stay even and the compressor lasts.",
+      lede: "Quiet, energy-efficient central air sized to the home — not a copy of whatever was on the pad — so July afternoons stay even and the compressor lasts.",
       includeTitle: "What this visit includes",
       include: [
         "Load calc so the coil and condenser match the house",
@@ -215,7 +215,7 @@
       theme: "urgent",
       badge: "24/7",
       title: "24/7 Emergency Service",
-      lede: "No-heat at −28°C and no-cool in a heat wave are the calls we keep a truck ready for. Call the emergency line and we dispatch.",
+      lede: "No-heat at −28°C and without cooling in a heat wave are the calls we keep a truck ready for. Call the emergency line and we dispatch.",
       includeTitle: "What this visit includes",
       include: [
         "After-hours dispatch across Edmonton",
@@ -241,7 +241,7 @@
       theme: "gold",
       badge: "Maintenance",
       title: "Maintenance & Tune-Ups",
-      lede: "Pre-winter furnace and pre-summer AC tune-ups that catch a $40 part before it becomes a Saturday night no-heat call.",
+      lede: "Pre-winter furnace and pre-summer AC tune-ups that catch a small worn part before it becomes a Saturday night no-heat call.",
       includeTitle: "What this visit includes",
       include: [
         "Burner, heat exchanger, and flame-sensor clean",

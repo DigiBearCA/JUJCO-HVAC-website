@@ -55,7 +55,7 @@
     urgent: "Emergency",
     gold: "JUJCO",
     about: "The shop",
-    contact: "Book a visit",
+    contact: "Book an Appointment",
     slate: "The work",
   };
 
