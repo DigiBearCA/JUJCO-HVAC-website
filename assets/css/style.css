@@ -9651,9 +9651,23 @@ select.cs_form_field {
   bottom: 40px;
 }
 
+.cs_about.cs_style_1 .cs_list_experience h3 {
+  font-size: 21.6px;
+}
+
 .cs_about.cs_style_1 .cs_list_experience h2 {
+  font-size: 72px;
   -webkit-text-stroke: 3px var(--accent);
   color: transparent;
+}
+
+@media (max-width: 767px) {
+  .cs_about.cs_style_1 .cs_list_experience h3 {
+    font-size: 17.6px;
+  }
+  .cs_about.cs_style_1 .cs_list_experience h2 {
+    font-size: 48px;
+  }
 }
 
 .cs_about.cs_style_1 .cs_list_2_wrap {
