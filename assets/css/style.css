@@ -6645,6 +6645,16 @@ select.cs_form_field {
   font-size: 18px;
 }
 
+.cs_footer_contact_info a {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.cs_footer_contact_info a:hover {
+  color: #fff;
+  opacity: 0.8;
+}
+
 .cs_footer.cs_style_1 .cs_footer_top {
   background-color: #00172d;
 }
