@@ -424,7 +424,7 @@
       '<span class="jtrans__panel jtrans__panel--b"></span>' +
       '<span class="jtrans__seam"></span>' +
       '<div class="jtrans__mark">' +
-      '<img class="jtrans__whole" src="assets/img/logo-mark.png?v=mark2" alt="">' +
+      '<img class="jtrans__whole" src="assets/img/logo-mark.webp?v=mark2" alt="">' +
       "</div>" +
       "</div>"
     );

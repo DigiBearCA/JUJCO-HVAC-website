@@ -4739,7 +4739,7 @@ select.cs_form_field {
 }
 
 .draggable {
-  cursor: url(../img/drag.png) 16 9, ew-resize !important;
+  cursor: url(../img/drag.webp) 16 9, ew-resize !important;
 }
 
 .slick-slide>div {
@@ -10593,7 +10593,7 @@ a.cs_service_card_link:hover {
 }
 
 /* --------------------------------------------------------------------------
-   JUJCO logo.png responsive sizing
+   JUJCO logo.webp responsive sizing
    -------------------------------------------------------------------------- */
 .cs_site_branding img,
 .cs_site_branding {
@@ -10617,7 +10617,7 @@ a.cs_service_card_link:hover {
   -ms-interpolation-mode: bicubic;
 }
 
-/* Crisp HTML lockup: swirl from logo.png + live type (never pixelates) */
+/* Crisp HTML lockup: swirl from logo.webp + live type (never pixelates) */
 .jlogo {
   display: flex !important;
   align-items: center;
