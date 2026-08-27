@@ -5407,6 +5407,7 @@ select.cs_form_field {
   width: 100%;
   left: 0;
   top: 0px;
+  background-color: var(--white);
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
@@ -5582,7 +5583,7 @@ select.cs_form_field {
   background-color: var(--accent);
   left: 100%;
   margin-left: -27.7%;
-  opacity: 0;
+  opacity: 1;
 }
 
 .cs_site_header.cs_style_1.cs_type_1 .cs_main_header_right {
