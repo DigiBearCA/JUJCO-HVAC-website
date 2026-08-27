@@ -9656,7 +9656,7 @@ select.cs_form_field {
 }
 
 .cs_about.cs_style_1 .cs_list_experience h2 {
-  font-size: 72px;
+  font-size: 65px;
   -webkit-text-stroke: 3px var(--accent);
   color: transparent;
 }
@@ -9666,7 +9666,8 @@ select.cs_form_field {
     font-size: 17.6px;
   }
   .cs_about.cs_style_1 .cs_list_experience h2 {
-    font-size: 48px;
+    font-size: 40px;
+    -webkit-text-stroke: 2px var(--accent);
   }
 }
 
