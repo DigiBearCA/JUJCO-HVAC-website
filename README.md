@@ -1,10 +1,12 @@
 <div align="center">
-  <img src="assets/img/logo-mark.png" alt="JUJCO Logo" width="150"/>
-  <h1>🔥 JUJCO Heating & Cooling ❄️</h1>
-  <p><em>Premium HVAC Services Website Project</em></p>
-  
+  <img src="assets/img/logo-mark.webp" alt="JUJCO Logo" width="150"/>
+  <h1>🔥 JUJCO Heating &amp; Cooling ❄️</h1>
+  <p><em>Premium HVAC Services Website</em></p>
+
   <p>
     <a href="https://digibearca.com"><img src="https://img.shields.io/badge/Maintained%20By-DigiBearCA-FF9900?style=for-the-badge&logo=codeigniter&logoColor=white" alt="DigiBearCA"></a>
+    <img src="https://img.shields.io/badge/Pages-41%20HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="41 HTML Pages">
+    <img src="https://img.shields.io/badge/Location-Edmonton%2C%20AB-0057A8?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Edmonton, Alberta">
   </p>
 </div>
 
@@ -12,47 +14,76 @@
 
 ## 🌟 About JUJCO
 
-Welcome to **JUJCO Heating & Cooling**. This repository contains the official frontend web architecture for an HVAC service provider based in Edmonton, Alberta. It serves as a digital storefront offering residential and commercial heating, ventilation, and air conditioning solutions.
+**JUJCO Heating & Cooling** is an HVAC service provider based in **Edmonton, Alberta**. This repository contains the complete frontend website — a premium digital storefront offering residential and commercial heating, ventilation, and air conditioning solutions across **41 hand-crafted HTML pages**.
 
 ---
 
-## 🔬 Project Architecture & Deep Analysis
+## 🗂️ File Structure
 
-Unlike a traditional Content Management System (CMS) or a Single-Page Application (SPA) built with React/Vue, this project utilizes a **Script-Assisted Static Site Architecture**. It relies on flat HTML files augmented by custom Python and PowerShell scripts to handle templating, bulk updates, and structural injection.
+The project is organized as a **flat-file static site** with pages grouped by type:
 
-### 1. Automation & Build Scripts
-The root directory contains utility scripts that act as a pseudo-Static Site Generator (SSG). These scripts parse and patch the `.html` files in bulk:
-- **`_wow_pages.py` (Python)**: Parses the HTML files to inject motion patterns, append `jtheme` and `jmorph` CSS classes, standardize breadcrumb navigation logic (`crumbs()`), and dynamically replace hero headers across all service and detail pages.
-- **`_bulk_all.ps1` (PowerShell)**: A robust bulk-update script that:
-  - Cleans up text encodings, replacing corrupted UTF-8 sequences (mojibake) with proper typographic characters (en-dashes, em-dashes, smart quotes).
-  - Conditionally injects MP4 preloader video tags depending on whether it's the index or an inner page.
-  - Automatically fixes and clones items for CSS marquee tracks.
-  - Conditionally hides or displays specific sections (like Pricing) based on the page context.
+| Category | Count | Examples |
+|---|---|---|
+| **Home** | 1 | `index.html` |
+| **Core Pages** | 8 | `about-us.html`, `contact.html`, `service.html`, `projects.html`, `blog.html`, `team.html`, `privacy.html`, `sitemap.html` |
+| **Service Pages** | 10 | `service-furnace-installation.html`, `service-ac-installation.html`, `service-heat-pump-installation.html`, … |
+| **Project / Portfolio Pages** | 8 | `project-boiler-replacement.html`, `project-heat-pump-install.html`, `project-details.html`, … |
+| **Blog Articles** | 6 | `blog-ac-stops-cooling.html`, `blog-lower-cooling-bills.html`, `blog-spring-tune-up.html`, … |
+| **Team Profiles** | 8 | `team-brooklyn-simmons.html`, `team-cameron-william.html`, `team-details.html`, … |
 
-### 2. Frontend Assets & Styling
-- **CSS Framework**: Built on **Bootstrap** for reliable and responsive grid layouts.
-- **Custom Animations**: Heavy emphasis on micro-interactions and scroll-animations using custom JS (`animations.js`, `jujco-anim2.js`, `jujco-motion.js`) and `wow.min.js`.
-- **Cinematic Preloader**: A custom, intricate pre-loader handled by `intro.js` featuring film-grain, glow effects, and animated rotors representing HVAC fans.
-- **Carousels**: Integrated with `jquery.slick.min.js` for content sliders.
+---
 
-### 3. File Structure Pattern
-The project scales by isolating page types into specific HTML files:
-- **Index Pages**: `index.html`, `index-2.html`, `home-v2.html`
-- **Service Pages**: `service-*.html` (e.g., `service-furnace-installation.html`)
-- **Project/Portfolio Pages**: `project-*.html`
-- **Blog Pages**: `blog-*.html`
-- **Team Profiles**: `team-*.html`
+## 🔬 Project Architecture
+
+This project uses a **flat-file static site architecture** — pure HTML pages enhanced by a rich custom asset pipeline, delivering a cinematic, animation-heavy experience without a framework or CMS.
+
+### 🎨 Styling (CSS — `assets/css/`)
+
+| File | Purpose |
+|---|---|
+| `style.css` | Master stylesheet — design tokens, layout, and all custom UI |
+| `animations.css` | Scroll-triggered and entrance animations |
+| `jujco-details.css` | Styles specific to detail / inner pages |
+| `bootstrap.min.css` | Responsive grid foundation |
+| `fontawesome.min.css` | Icon library |
+| `animate.css` | WOW.js animation helper classes |
+| `slick.min.css` | Carousel base styles |
+
+### ⚙️ JavaScript (`assets/js/`)
+
+| File | Purpose |
+|---|---|
+| `main.js` | Core site interactions, navigation, and UI logic |
+| `animations.js` | Custom scroll and entrance animation controller |
+| `intro.js` | Cinematic preloader — film grain, HVAC fan rotors, glow effects |
+| `jujco-anim2.js` | Secondary animation layer and motion effects |
+| `jujco-details.js` | Logic specific to service / project / team detail pages |
+| `jujco-motion.js` | Lightweight motion utility helpers |
+| `wow.min.js` | Scroll-triggered animation trigger library |
+| `jquery-3.6.0.min.js` | jQuery core |
+| `jquery.slick.min.js` | Slick carousel library |
+
+### 📁 Asset Directories
+
+```
+assets/
+├── css/             # All stylesheets (7 files)
+├── js/              # All JavaScript (9 files)
+├── img/             # Images, logos, team photos
+├── fonts/           # Custom / web fonts
+└── product_videos/  # MP4 videos used in hero backgrounds & preloaders
+```
 
 ---
 
 ## 📖 For Non-Coders: What is this Project?
 
-This project is the **official website** for JUJCO Heating & Cooling. Think of it as a digital storefront. Just as a physical store needs a well-designed layout, friendly signs, and a welcoming entrance, a business needs a website that looks professional and helps customers find what they need quickly.
+This is the **official website** for JUJCO Heating & Cooling — a digital storefront that helps Edmonton-area customers find heating and cooling services quickly.
 
-Here is a simple breakdown of what this project contains:
-- **The Visual Design**: It includes all the fonts, colors, images, and animations (like the cool cinematic intro when you first open the site) that make the website look modern, trustworthy, and premium.
-- **The Engine Under the Hood**: Although it's a standard website, it uses custom mini-programs (scripts) to automatically update formatting, fix typos, and apply the same visual style across all 50+ pages at once. This means if we need to change the style of the top banner, we run a script instead of changing 50 files by hand!
-- **The Content**: Everything from describing furnace repairs and AC installations to showcasing past work and introducing the team members.
+- **The Visual Design**: Custom colors, typography, images, and animations (including a cinematic intro sequence) make the site feel modern, trustworthy, and premium.
+- **41 Unique Pages**: Each page is a fully styled HTML file covering services, blog articles, team bios, project portfolios, and more.
+- **Rich Animations**: Micro-interactions and scroll animations throughout give the site a polished, app-like feel.
+- **Video Backgrounds**: Product and hero videos (`assets/product_videos/`) are embedded to create an immersive first impression.
 
 ---
 
@@ -68,11 +99,12 @@ This project is proudly owned and managed by **[DigiBearCA.com](https://digibear
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell" />
+  <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" alt="jQuery" />
+  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
+  <img src="https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=fontawesome&logoColor=white" alt="Font Awesome" />
 </div>
 
 <p align="center">
   <br>
-  <em>Designed and maintained with ❤️ for JUJCO Heating & Cooling.</em>
+  <em>Designed and maintained with ❤️ for JUJCO Heating &amp; Cooling.</em>
 </p>
