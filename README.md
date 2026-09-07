@@ -6,6 +6,7 @@
   <p>
     <a href="https://digibearca.com"><img src="https://img.shields.io/badge/Maintained%20By-DigiBearCA-FF9900?style=for-the-badge&logo=codeigniter&logoColor=white" alt="DigiBearCA"></a>
     <img src="https://img.shields.io/badge/Pages-41%20HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="41 HTML Pages">
+    <img src="https://img.shields.io/badge/Pages-42%20HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="42 HTML Pages">
     <img src="https://img.shields.io/badge/Location-Edmonton%2C%20AB-0057A8?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Edmonton, Alberta">
   </p>
 </div>
@@ -15,6 +16,7 @@
 ## 🌟 About JUJCO
 
 **JUJCO Heating & Cooling** is an HVAC service provider based in **Edmonton, Alberta**. This repository contains the complete frontend website — a premium digital storefront offering residential and commercial heating, ventilation, and air conditioning solutions across **41 hand-crafted HTML pages**.
+**JUJCO Heating & Cooling** is an HVAC service provider based in **Edmonton, Alberta**. This repository contains the complete frontend website — a premium digital storefront offering residential and commercial heating, ventilation, and air conditioning solutions across **42 hand-crafted HTML pages**.
 
 ---
 
@@ -27,6 +29,7 @@ The project is organized as a **flat-file static site** with pages grouped by ty
 | **Home** | 1 | `index.html` |
 | **Core Pages** | 8 | `about-us.html`, `contact.html`, `service.html`, `projects.html`, `blog.html`, `team.html`, `privacy.html`, `sitemap.html` |
 | **Service Pages** | 10 | `service-furnace-installation.html`, `service-ac-installation.html`, `service-heat-pump-installation.html`, … |
+| **Service Pages** | 11 | `service-furnace-installation.html`, `service-rooftop-units.html`, `service-ac-installation.html`, … |
 | **Project / Portfolio Pages** | 8 | `project-boiler-replacement.html`, `project-heat-pump-install.html`, `project-details.html`, … |
 | **Blog Articles** | 6 | `blog-ac-stops-cooling.html`, `blog-lower-cooling-bills.html`, `blog-spring-tune-up.html`, … |
 | **Team Profiles** | 8 | `team-brooklyn-simmons.html`, `team-cameron-william.html`, `team-details.html`, … |
@@ -82,6 +85,7 @@ This is the **official website** for JUJCO Heating & Cooling — a digital store
 
 - **The Visual Design**: Custom colors, typography, images, and animations (including a cinematic intro sequence) make the site feel modern, trustworthy, and premium.
 - **41 Unique Pages**: Each page is a fully styled HTML file covering services, blog articles, team bios, project portfolios, and more.
+- **42 Unique Pages**: Each page is a fully styled HTML file covering services, blog articles, team bios, project portfolios, and more.
 - **Rich Animations**: Micro-interactions and scroll animations throughout give the site a polished, app-like feel.
 - **Video Backgrounds**: Product and hero videos (`assets/product_videos/`) are embedded to create an immersive first impression.
 
