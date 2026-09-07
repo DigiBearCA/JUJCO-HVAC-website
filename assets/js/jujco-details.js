@@ -289,7 +289,7 @@
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
     },
-    "svc-garage": {
+/*     "svc-garage": {
       theme: "heat",
       badge: "Heating",
       title: "Garage Heaters Installation & Repair",
@@ -314,7 +314,7 @@
       book: "contact",
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
-    },
+    }, */
     "svc-visit": {
       theme: "gold",
       badge: "How we work",
