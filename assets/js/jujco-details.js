@@ -55,7 +55,7 @@
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
     },
-    "svc-boiler": {
+    /* "svc-boiler": {
       theme: "heat",
       badge: "Hydronic",
       title: "Boiler & Hydronic Heating",
@@ -80,7 +80,7 @@
       book: "contact",
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
-    },
+    }, */
     "svc-heating": {
       theme: "heat",
       badge: "Repair",
