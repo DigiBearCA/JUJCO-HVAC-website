@@ -30,7 +30,7 @@ The project is organized as a **flat-file static site** with pages grouped by ty
 | **Core Pages** | 8 | `about-us.html`, `contact.html`, `service.html`, `projects.html`, `blog.html`, `team.html`, `privacy.html`, `sitemap.html` |
 | **Service Pages** | 10 | `service-furnace-installation.html`, `service-ac-installation.html`, `service-heat-pump-installation.html`, … |
 | **Service Pages** | 11 | `service-furnace-installation.html`, `service-rooftop-units.html`, `service-ac-installation.html`, … |
-| **Project / Portfolio Pages** | 8 | `project-boiler-replacement.html`, `project-heat-pump-install.html`, `project-details.html`, … |
+| **Project / Portfolio Pages** | 8 | `project-rtu-replacement.html`, `project-heat-pump-install.html`, `project-details.html`, … |
 | **Blog Articles** | 6 | `blog-ac-stops-cooling.html`, `blog-lower-cooling-bills.html`, `blog-spring-tune-up.html`, … |
 | **Team Profiles** | 8 | `team-brooklyn-simmons.html`, `team-cameron-william.html`, `team-details.html`, … |
 
