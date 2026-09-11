@@ -17,7 +17,7 @@
         "Combustion and airflow commissioning",
         "10-year parts path plus JUJCO labour warranty",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "The furnace is 15+ years old or short-cycling",
         "Rooms upstairs stay cold in January",
@@ -43,7 +43,7 @@
         "Rebate paperwork walkthrough",
         "One system for winter heat and summer cool",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "You want lower winter bills without losing backup heat",
         "You are replacing both a furnace and an AC",
@@ -69,7 +69,7 @@
         "Outdoor-reset control setup",
         "System flush and inhibitor fill",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "The boiler is leaking, banging, or short on hot water",
         "Radiators are lukewarm on one side of the house",
@@ -95,7 +95,7 @@
         "On-truck parts for common Edmonton furnaces",
         "Clear repair vs replace advice if the unit is old",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "No heat, short cycling, or a raw-gas smell",
         "The furnace blower never shuts off",
@@ -121,7 +121,7 @@
         "Old unit recovery and haul-away",
         "Thermostat setup for cooling lockouts",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "You have never had central air and want it before July",
         "The old condenser is loud, rusty, or R-22",
@@ -147,7 +147,7 @@
         "Capacitor and contactor replacements from the truck",
         "A written note on remaining life of the compressor",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "The outdoor fan spins but the air is warm",
         "Ice is on the copper lines",
@@ -159,7 +159,7 @@
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
     },
-    "svc-ducts": {
+    /* "svc-ducts": {
       theme: "slate",
       badge: "Airflow",
       title: "Air Duct Cleaning",
@@ -173,7 +173,7 @@
         "Optional dryer-vent add-on",
         "Before/after photos of the main trunk",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "You just renovated and the vents blow grit",
         "Allergy or dust complaints spiked",
@@ -184,7 +184,7 @@
       book: "contact",
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
-    },
+    }, */
     "svc-iaq": {
       theme: "air",
       badge: "Air quality",
@@ -199,7 +199,7 @@
         "Balanced airflow after the new equipment",
         "Simple filter and pad change instructions",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "Winter humidity sits under 25%",
         "Windows fog or furniture cracks",
@@ -251,7 +251,7 @@
         "Combustion or temperature-split numbers written down",
         "A punch-list of anything that will fail next season",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "October is coming and the furnace has not been opened",
         "May is coming and last summer was a close call",
@@ -277,7 +277,7 @@
         "Free-cooling economizer and fresh-air damper calibration",
         "Commercial BAS or multi-stage thermostat integration",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "An existing commercial RTU is 15+ years old or failing",
         "Tenants report hot or cold drafts across office zones",
@@ -303,7 +303,7 @@
         "Radiant tube or forced-air unit heater options",
         "Diagnostics and repairs for failing garage heaters",
       ],
-      whenTitle: "Book this when",
+      whenTitle: "Book this service when:",
       when: [
         "Your garage freezes over during the winter",
         "You want to use your shop or garage as a year-round workspace",
@@ -362,7 +362,7 @@
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
     },
-    "prj-ducts": {
+    /* "prj-ducts": {
       theme: "slate",
       badge: "Project",
       title: "Whole-home duct cleaning — St. Albert",
@@ -383,7 +383,7 @@
       book: "contact",
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
-    },
+    }, */
     "prj-ac": {
       theme: "cool",
       badge: "Project",
