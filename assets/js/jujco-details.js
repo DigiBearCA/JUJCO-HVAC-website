@@ -357,7 +357,7 @@
         "Your furnace is more than 6 years old",
         "The upper floor never catches up during cold winter months",
       ],
-      page: "project-details",
+      page: "project-furnace-installation",
       book: "contact",
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
