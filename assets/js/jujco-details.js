@@ -428,6 +428,28 @@
       call: "tel:+17809822577",
       callLabel: "Office (780) 982-2577",
     },
+    "prj-garage": {
+      theme: "heat",
+      badge: "Project",
+      title: "Garage heater installation in Alberta",
+      lede: "A cold detached garage was converted into a warm, comfortable workspace all winter with a high efficiency unit heater and code certified gas piping.",
+      includeTitle: "What changed",
+      include: [
+        "Natural gas line run and certified shutoff valve installed",
+        "Overhead unit heater securely mounted to ceiling trusses",
+        "Direct sidewall power venting with weatherproof termination",
+        "Digital wall thermostat for precise winter climate control",
+      ],
+      whenTitle: "Similar job?",
+      when: [
+        "Your garage freezes vehicles and tools throughout the winter",
+        "You want a warm, usable workshop or hobby space year round",
+      ],
+      page: "project-garage-heater-install",
+      book: "contact",
+      call: "tel:+17809822577",
+      callLabel: "Office (780) 982-2577",
+    },
     "prj-iaq": {
       theme: "air",
       badge: "Project",
