@@ -4802,6 +4802,15 @@ select.cs_form_field {
   position: relative;
 }
 
+.cs_slider_2_wrap .slick-slider {
+  cursor: grab;
+}
+
+.cs_slider_2_wrap .slick-slider:active,
+.cs_slider_2_wrap .slick-slider.slick-dotted:active {
+  cursor: grabbing;
+}
+
 @media (min-width: 1200px) {
   .cs_slider.cs_style_2 {
     width: calc(100% + 280px);
