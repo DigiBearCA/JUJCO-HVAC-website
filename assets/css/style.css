@@ -7821,6 +7821,7 @@ select.cs_form_field {
 }
 
 .cs_post.cs_style_4 a.cs_post_thumb img {
+  width: 100%;
   -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
 }
