@@ -1137,7 +1137,7 @@
     </section>
     <!-- End Why Choose Us -->
     <!-- Start CTA Section -->
-    <section
+    <!-- <section
       class="cs_cta cs_style_1 cs_bg_filed"
       data-src="assets/img/cta_bg_1.svg"
     >
@@ -1180,7 +1180,7 @@
       <div class="cs_cta_img">
         <img src="assets/img/cta_img_1.webp" alt="" />
       </div>
-    </section>
+    </section> -->
     <!-- End CTA Section -->
     <!-- Start Team Section -->
 <!--
@@ -1626,10 +1626,176 @@
     </section>
     -->
 <!-- End Team Section -->
+    <!-- Start Special Offers Section -->
+    <section class="cs_special_offers_section cs_gray_bg" id="special-offers">
+      <style>
+        .cs_special_offers_section {
+          background-color: #f7fafc;
+          position: relative;
+        }
+        .cs_offer_card {
+          position: relative;
+          background: #ffffff;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        .cs_offer_card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0, 50, 150, 0.16);
+        }
+        .cs_offer_card_link {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: inherit;
+        }
+        .cs_offer_card_thumb {
+          position: relative;
+          overflow: hidden;
+          background: #ffffff;
+        }
+        .cs_offer_card_thumb img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+        .cs_offer_card:hover .cs_offer_card_thumb img {
+          transform: scale(1.02);
+        }
+        #contact-quote {
+          scroll-margin-top: 100px;
+        }
+      </style>
+      <div class="cs_height_115 cs_height_lg_70"></div>
+      <div class="container">
+        <div class="cs_section_heading cs_style_1 text-center">
+          <h3
+            class="cs_section_subtitle cs_accent_color text-uppercase cs_medium cs_fs_20 cs_mb_10 wow fadeInUp"
+            data-wow-duration="0.9s"
+            data-wow-delay="0.25s"
+          >
+            <img
+              src="assets/img/icons/fan.svg"
+              alt=""
+              class="cs_section_subheading_icon"
+            />
+            Special Offers
+          </h3>
+          <h2
+            class="cs_section_title cs_fs_48 cs_semibold mb-0 wow fadeInUp"
+            data-wow-duration="4s"
+            data-wow-delay="0.35s"
+          >
+            Current Heating and Cooling Specials in Alberta
+          </h2>
+        </div>
+        <div class="cs_height_50 cs_height_lg_40"></div>
+        <div class="row cs_gap_y_30 justify-content-center">
+          <!-- Offer 1: Furnace Tune Up -->
+          <div
+            class="col-lg-4 col-md-4 col-12 wow fadeInUp"
+            data-wow-duration="0.9s"
+            data-wow-delay="0.25s"
+          >
+            <div class="cs_offer_card">
+              <a
+                href="/contact"
+                class="cs_offer_card_link"
+                aria-label="Book Furnace Tune Up Special Offer"
+              >
+                <div class="cs_offer_card_thumb">
+                  <img
+                    src="assets/img/furnace-tune-up-$149.webp"
+                    alt="JUJCO Furnace Tune Up Special Offer for 149 Dollars"
+                    class="w-100"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- Offer 2: Furnace Diagnostic -->
+          <div
+            class="col-lg-4 col-md-4 col-12 wow fadeInUp"
+            data-wow-duration="0.9s"
+            data-wow-delay="0.35s"
+          >
+            <div class="cs_offer_card">
+              <a
+                href="/contact"
+                class="cs_offer_card_link"
+                aria-label="Book Furnace Diagnostic Special Offer"
+              >
+                <div class="cs_offer_card_thumb">
+                  <img
+                    src="assets/img/furnace-diagnostic-$99.webp"
+                    alt="JUJCO Furnace Diagnostic Inspection Only 99 Dollars"
+                    class="w-100"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- Offer 3: Free Visit -->
+          <div
+            class="col-lg-4 col-md-4 col-12 wow fadeInUp"
+            data-wow-duration="0.9s"
+            data-wow-delay="0.45s"
+          >
+            <div class="cs_offer_card">
+              <a
+                href="/contact"
+                class="cs_offer_card_link"
+                aria-label="Request Free On Site Quote Visit"
+              >
+                <div class="cs_offer_card_thumb">
+                  <img
+                    src="assets/img/free-visit.webp"
+                    alt="JUJCO Free On Site Visits For Quotations Across Alberta"
+                    class="w-100"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cs_height_45 cs_height_lg_35"></div>
+        <div class="text-center wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.5s">
+          <a href="/contact" class="cs_btn cs_style_1">
+            <span>Claim Your Special Offer</span>
+            <svg
+              width="14"
+              height="13"
+              viewBox="0 0 14 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.28125 0.71875L13.7812 5.96875C13.9271 6.11458 14 6.29167 14 6.5C14 6.70833 13.9271 6.88542 13.7812 7.03125L8.28125 12.2812C7.90625 12.5729 7.55208 12.5729 7.21875 12.2812C6.92708 11.9062 6.92708 11.5521 7.21875 11.2188L11.375 7.25H0.75C0.291667 7.20833 0.0416667 6.95833 0 6.5C0.0416667 6.04167 0.291667 5.79167 0.75 5.75H11.375L7.21875 1.78125C6.92708 1.44792 6.92708 1.09375 7.21875 0.71875C7.55208 0.427083 7.90625 0.427083 8.28125 0.71875Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="cs_height_115 cs_height_lg_70"></div>
+    </section>
+    <!-- End Special Offers Section -->
     <!-- Start Get A Quote Section -->
     <section
       class="cs_get_quote cs_bg_filed"
       data-src="assets/img/get_a_quote_bg.webp"
+      id="contact-quote"
     >
       <div class="cs_height_120 cs_height_lg_80"></div>
       <div class="container">
