@@ -15,3 +15,7 @@ npm-debug.log*
 
 # Dependencies (none used, but future-proof)
 node_modules/
+
+# Cache
+.site-sync-cache.json
+

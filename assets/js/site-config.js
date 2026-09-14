@@ -1,0 +1,18 @@
+/**
+ * Site Configuration
+ * Central place for domain, contact, and social media links across the site.
+ */
+window.SITE_CONFIG = {
+  "domain": "https://digibearca.github.io/JUJCO-HVAC-website",
+  "siteName": "JUJCO Heating & Cooling",
+  "email": "info@jujcohvac.com",
+  "phone": "(780) 982 2577",
+  "phoneRaw": "+17809822577",
+  "emergencyPhone": "(780) 982 3377",
+  "emergencyPhoneRaw": "+17809823377",
+  "social": {
+    "facebook": "https://www.facebook.com/jujco.heating.cooling/",
+    "instagram": "https://www.instagram.com/jujcohvac",
+    "tiktok": "https://www.tiktok.com/@jujcoheatingcooling"
+  }
+};
