@@ -15,7 +15,7 @@
         "Code venting, gas line, and condensate work",
         "Two stage or modulating equipment setup with a compatible thermostat",
         "Combustion and airflow commissioning",
-        "1 year parts warranty plus JUJCO labour coverage",
+        "10 year parts warranty plus JUJCO labour coverage",
       ],
       whenTitle: "Book this service when:",
       when: [
