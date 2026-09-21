@@ -19,7 +19,7 @@
       ],
       whenTitle: "Book this service when:",
       when: [
-        "The furnace is over 6 years old or cycling rapidly",
+        "The furnace is over 15 years old or cycling rapidly",
         "Rooms upstairs stay cold in January",
         "You want a high efficiency replacement before a failure occurs",
         "A heating inspection showed the heat exchanger needs replacement",
