@@ -3,7 +3,7 @@
  * Central place for domain, contact, and social media links across the site.
  */
 window.SITE_CONFIG = {
-  "domain": "https://digibearca.github.io/JUJCO-HVAC-website",
+  "domain": "https://jujcohvac.com",
   "siteName": "JUJCO Heating & Cooling",
   "email": "info@jujcohvac.com",
   "phone": "(780) 982 2577",
