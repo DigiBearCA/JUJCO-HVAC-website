@@ -984,6 +984,11 @@ body.jpop-lock {
   .jstory img {
     height: 280px;
   }
+
+  .jtheme .jdetail-hero h1,
+  .jtheme .jpage-hero h1 {
+    max-width: 24ch;
+  }
 }
 
 @media (max-width: 575px) {
@@ -995,6 +1000,15 @@ body.jpop-lock {
   .jcases,
   .jarticles {
     grid-template-columns: 1fr;
+  }
+
+  .jstory {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .jdetail-when {
+    padding: 22px 18px;
   }
 }
 
